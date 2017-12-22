@@ -82,28 +82,28 @@ var app = {
 
     captureVideoSuccess: function (e) {
         console.log('captureVideoSuccess');
-        // console.dir(e);
-        //
-        // var video = {};
-        // video.file = e[0].localURL;
-        // video.filePath = e[0].fullPath;
-        //
-        //
-        // if (!video.file) {
-        //     navigator.notification.alert("Record a video first.", null, "Error");
-        //     return;
-        // }
-        //
-        // function completeCallback() {
-        //     console.log(' VideoPlayer completeCallback');
-        // }
-        //
-        // function errorCallback(e) {
-        //     console.log(' VideoPlayer errorCallback ', e);
-        // }
-        //
-        // var options = {volume: 0.5};
-        // VideoPlayer.play(video.file, [options], [completeCallback], [errorCallback]);
+        console.dir(e);
+
+        var video = {};
+        video.file = e[0].localURL;
+        video.filePath = e[0].fullPath;
+
+
+        if (!video.file) {
+            navigator.notification.alert("Record a video first.", null, "Error");
+            return;
+        }
+
+        function completeCallback() {
+            console.log(' VideoPlayer completeCallback');
+        }
+
+        function errorCallback(e) {
+            console.log(' VideoPlayer errorCallback ', e);
+        }
+
+        var options = {volume: 0.5};
+        VideoPlayer.play(video.file, [options], [completeCallback], [errorCallback]);
     },
 
     captureError: function (e) {
