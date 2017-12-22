@@ -33,27 +33,81 @@ var app = {
     },
 
     onClickCaptureAudioButton: function () {
-        // var options = {duration: 10};
-        //
-        // if (!navigator.device) {
-        //     navigator.notification.alert("navigator.device  undefined", null, "Error");
-        //     return;
-        // }
-        // navigator.device.capture.captureAudio(
-        //     this.captureSuccess, this.captureError, [options]
-        // );
+        var options = {duration: 10};
+
+        if (!navigator.device) {
+            // navigator.notification.alert("navigator.device  undefined", null, "Error");
+            return;
+        }
+        navigator.device.capture.captureAudio(
+            this.captureSuccess, this.captureError, [options]
+        );
     },
 
     onClickCaptureVideoButton: function () {
-        // var options = {duration: 10};
+        var options = {duration: 10};
+
+        if (!navigator.device) {
+            // navigator.notification.alert("navigator.device  undefined", null, "Error");
+            return;
+        }
+        navigator.device.capture.captureVideo(
+            this.captureVideoSuccess, this.captureError, [options]
+        );
+    },
+
+    captureSuccess: function (e) {
+        console.log('captureSuccess');
+        // console.dir(e);
         //
-        // if (!navigator.device) {
-        //     navigator.notification.alert("navigator.device  undefined", null, "Error");
+        // var sound = {};
+        // sound.file = e[0].localURL;
+        // sound.filePath = e[0].fullPath;
+        //
+        // if (!sound.file) {
+        //     navigator.notification.alert("Record a sound first.", null, "Error");
         //     return;
         // }
-        // navigator.device.capture.captureVideo(
-        //     this.captureVideoSuccess, this.captureError, [options]
-        // );
+        //
+        //
+        // var media = new Media(sound.file, function () {
+        //     media.release();
+        // }, function (err) {
+        //     console.log("media err", err);
+        // });
+        //
+        // media.play();
+    },
+
+
+    captureVideoSuccess: function (e) {
+        console.log('captureVideoSuccess');
+        // console.dir(e);
+        //
+        // var video = {};
+        // video.file = e[0].localURL;
+        // video.filePath = e[0].fullPath;
+        //
+        //
+        // if (!video.file) {
+        //     navigator.notification.alert("Record a video first.", null, "Error");
+        //     return;
+        // }
+        //
+        // function completeCallback() {
+        //     console.log(' VideoPlayer completeCallback');
+        // }
+        //
+        // function errorCallback(e) {
+        //     console.log(' VideoPlayer errorCallback ', e);
+        // }
+        //
+        // var options = {volume: 0.5};
+        // VideoPlayer.play(video.file, [options], [completeCallback], [errorCallback]);
+    },
+
+    captureError: function (e) {
+        console.log('captureError ', e);
     },
 
     // deviceready Event Handler
