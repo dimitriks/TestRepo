@@ -20,6 +20,40 @@ var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+
+        var captureAudioButton = document.getElementsByClassName("capture-audio");
+        var captureVideoButton = document.getElementsByClassName("capture-video");
+
+        if (captureAudioButton.length) {
+            captureAudioButton[0].addEventListener("click", this.onClickCaptureAudioButton.bind(this), false);
+        }
+        if (captureVideoButton) {
+            captureVideoButton[0].addEventListener("click", this.onClickCaptureVideoButton.bind(this), false);
+        }
+    },
+
+    onClickCaptureAudioButton: function () {
+        // var options = {duration: 10};
+        //
+        // if (!navigator.device) {
+        //     navigator.notification.alert("navigator.device  undefined", null, "Error");
+        //     return;
+        // }
+        // navigator.device.capture.captureAudio(
+        //     this.captureSuccess, this.captureError, [options]
+        // );
+    },
+
+    onClickCaptureVideoButton: function () {
+        // var options = {duration: 10};
+        //
+        // if (!navigator.device) {
+        //     navigator.notification.alert("navigator.device  undefined", null, "Error");
+        //     return;
+        // }
+        // navigator.device.capture.captureVideo(
+        //     this.captureVideoSuccess, this.captureError, [options]
+        // );
     },
 
     // deviceready Event Handler
@@ -32,12 +66,7 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
     }
