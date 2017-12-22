@@ -13,7 +13,7 @@
     "cordova-android": "^6.3.0",
     "cordova-ios": "^4.5.4",
     "cordova-plugin-file": "^5.0.0",
-    "cordova-plugin-media-capture": "^2.0.0",
+    "cordova-plugin-media-capture": "~3.0.0",
     "cordova-plugin-whitelist": "^1.3.3"
   },
   "cordova": {
