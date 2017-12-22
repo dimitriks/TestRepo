@@ -36,7 +36,7 @@ var app = {
         var options = {duration: 10};
 
         if (!navigator.device) {
-            // navigator.notification.alert("navigator.device  undefined", null, "Error");
+            navigator.notification.alert("navigator.device  undefined", null, "Error");
             return;
         }
         navigator.device.capture.captureAudio(
@@ -48,7 +48,7 @@ var app = {
         var options = {duration: 10};
 
         if (!navigator.device) {
-            // navigator.notification.alert("navigator.device  undefined", null, "Error");
+            navigator.notification.alert("navigator.device  undefined", null, "Error");
             return;
         }
         navigator.device.capture.captureVideo(
